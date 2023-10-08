@@ -39,6 +39,8 @@ adduser turnserver ssl-cert
 
 ynh_restore_file --origin_path="/etc/$app"
 
+ynh_restore_file --origin_path="/var/log/$app"
+
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_restore_file --origin_path="/etc/systemd/system/$app.service"
