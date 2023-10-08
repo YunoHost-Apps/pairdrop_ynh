@@ -11,9 +11,6 @@ Environment="PORT=__PORT__"
 Environment="RTC_CONFIG=__INSTALL_DIR__/rtc_config.json"
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__YNH_NODE__ __INSTALL_DIR__/index.js --rate-limit --auto-restart
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=__APP__
 Restart=always
 
 
