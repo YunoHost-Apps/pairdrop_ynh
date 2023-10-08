@@ -31,6 +31,9 @@ then
 	yunohost service remove coturn-$app
 fi
 
+# Remove the app-specific logrotate config
+ynh_remove_logrotate
+
 ynh_remove_systemd_config
 ynh_remove_systemd_config --service=coturn-$app
 
