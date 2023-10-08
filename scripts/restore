@@ -51,7 +51,7 @@ systemctl enable coturn-$app.service --quiet
 ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 
 yunohost service add $app --description="Local file sharing in your browser" --log="/var/log/$app/$app.log"
-yunohost service add coturn-$app --description="Coturn TURN server" --log="/var/log/$app/turnserver.log" --needs_exposed_ports $turnserver_port
+yunohost service add coturn-$app --description="Coturn TURN server" --log="/var/log/$app/turnserver.log" --needs_exposed_ports $port_turnserver
 
 #=================================================
 # RESTORE USER RIGHTS
