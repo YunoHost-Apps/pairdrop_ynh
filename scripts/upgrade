@@ -35,6 +35,61 @@ fi
 chown -R $app:www-data "$install_dir"
 
 #=================================================
+# MULTINSTANCE SUPPORT
+#=================================================
+
+if [ ! -e /etc/$app/coturn.conf ]
+then
+    ynh_script_progression --message="Creating an independant service for Coturn..." --weight=1
+
+    #=================================================
+    # CREATE AN INDEPENDANT SERVICE FOR COTURN
+    #=================================================
+
+    # Disable default config for turnserver and create a new service
+    systemctl stop coturn.service
+
+    # Set by default the system config for coturn
+    echo "" > /etc/turnserver.conf
+    ynh_replace_string --match_string="TURNSERVER_ENABLED=1" --replace_string="TURNSERVER_ENABLED=0" --target_file=/etc/default/coturn
+
+    #=================================================
+    # MAKE A CLEAN LOGROTATE CONFIG
+    #=================================================
+
+    ynh_use_logrotate --logfile /var/log/$app --nonappend
+fi
+
+#=================================================
+# UPDATE COTURN CONFIG
+#=================================================
+ynh_script_progression --message="Updating Coturn config..." --weight=1
+
+ynh_add_config --template="../conf/coturn/turnserver.conf" --destination="/etc/$app/coturn.conf"
+
+# Get public IP and set as external IP for coturn
+# note : '|| true' is used to ignore the errors if we can't get the public ipv4 or ipv6
+public_ip4="$(curl -s ip.yunohost.org)" || true
+public_ip6="$(curl -s ipv6.yunohost.org)" || true
+
+if ( [[ -n "$public_ip4" ]] && ynh_validate_ip4 --ip_address="$public_ip4" || [[ -n "$public_ip6" ]] && ynh_validate_ip6 --ip_address="$public_ip6" )
+then
+    echo "external-ip=${public_ip4}/${public_ip6}" >> "/etc/$app/coturn.conf"
+fi
+
+ynh_store_file_checksum --file="/etc/$app/coturn.conf"
+
+ynh_system_user_create --username=turnserver
+adduser turnserver ssl-cert
+
+# Set permissions on app files
+chown -R $app:root /etc/$app
+chown turnserver:root "/etc/$app/coturn.conf"
+chmod -R u=rwX,g=rX,o= /etc/$app
+setfacl -R -m user:turnserver:rX  /etc/$app
+setfacl -R -m user:turnserver:rwX  /var/log/$app
+
+#=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=5
@@ -52,6 +107,7 @@ ynh_add_nginx_config
 ynh_add_systemd_config
 
 yunohost service add $app --description="Local file sharing in your browser" --log="/var/log/$app/$app.log"
+yunohost service add coturn-$app --description="Coturn TURN server" --log="/var/log/$app/turnserver.log" --needs_exposed_ports $port_turnserver
 
 #=================================================
 # BUILD YARN DEPENDENCIES
@@ -81,6 +137,7 @@ popd
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=coturn-$app.service --action=restart --log_path="/var/log/$app/turnserver.log"
 
 #=================================================
 # END OF SCRIPT

@@ -25,12 +25,23 @@ then
 	yunohost service remove $app
 fi
 
+if ynh_exec_warn_less yunohost service status coturn-$app >/dev/null
+then
+	ynh_script_progression --message="Removing coturn-$app service integration..." --weight=1
+	yunohost service remove coturn-$app
+fi
+
 ynh_remove_systemd_config
+ynh_remove_systemd_config --service=coturn-$app
 
 ynh_remove_nginx_config
 
 # Remove NodeJS
 ynh_remove_nodejs
+
+ynh_secure_remove --file=/etc/default/coturn-$app
+
+ynh_system_user_delete --username=turnserver
 
 #=================================================
 # END OF SCRIPT
