@@ -58,6 +58,19 @@ yunohost service add $app --description="Local file sharing in your browser" --l
 yunohost service add coturn-$app --description="Coturn TURN server" --log="/var/log/$app/turnserver.log" --needs_exposed_ports $port_turnserver
 
 #=================================================
+# SETUP LOGROTATE
+#=================================================
+ynh_script_progression --message="Configuring log rotation..." --weight=1
+
+# Create log directory
+mkdir -p /var/log/$app
+touch /var/log/$app/$app.log
+chown $app -R /var/log/$app
+
+# Setup logrotate
+ynh_use_logrotate --logfile "/var/log/$app"
+
+#=================================================
 # SET COTURN CONFIG
 #=================================================
 ynh_script_progression --message="Configuring Coturn..." --weight=1
