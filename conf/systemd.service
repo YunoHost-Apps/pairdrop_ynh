@@ -1,5 +1,5 @@
 [Unit]
-Description=PairDrop
+Description=PairDrop: local file sharing
 After=network.target
 
 [Service]
