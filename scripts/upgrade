@@ -54,6 +54,16 @@ ynh_add_systemd_config
 yunohost service add $app --description="Local file sharing in your browser" --log="/var/log/$app/$app.log"
 
 #=================================================
+# BUILD YARN DEPENDENCIES
+#=================================================
+ynh_script_progression --message="Building Yarn dependencies..."
+
+pushd "$install_dir"
+	ynh_use_nodejs
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install
+popd
+
+#=================================================
 # RECONFIGURE THE APP (UPDATE CONF, APPLY MIGRATIONS...)
 #=================================================
 # UPDATE A CONFIG FILE
