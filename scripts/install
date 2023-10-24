@@ -30,6 +30,15 @@ ynh_setup_source --dest_dir="$install_dir"
 chown -R $app:www-data "$install_dir"
 
 #=================================================
+# CREATE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Configuring system user..." --weight=3
+
+# Create a system user
+ynh_system_user_create --username=turnserver
+adduser turnserver ssl-cert
+
+#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
@@ -40,7 +49,58 @@ ynh_add_nginx_config
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
+mkdir -p /etc/$app
+# Create systemd service for turnserver
+cp ../conf/coturn/default_coturn /etc/default/coturn-$app
+ynh_add_systemd_config --service=coturn-$app --template=coturn-pairdrop.service
+
 yunohost service add $app --description="Local file sharing in your browser" --log="/var/log/$app/$app.log"
+yunohost service add coturn-$app --description="Coturn TURN server" --log="/var/log/$app/turnserver.log" --needs_exposed_ports $port_turnserver
+
+#=================================================
+# SETUP LOGROTATE
+#=================================================
+ynh_script_progression --message="Configuring log rotation..." --weight=1
+
+# Create log directory
+mkdir -p /var/log/$app
+touch /var/log/$app/$app.log
+chown $app -R /var/log/$app
+
+# Setup logrotate
+ynh_use_logrotate --logfile "/var/log/$app"
+
+#=================================================
+# SET COTURN CONFIG
+#=================================================
+ynh_script_progression --message="Configuring Coturn..." --weight=1
+
+# Find password for turnserver
+turnserver_pwd=$(ynh_string_random --length=30)
+ynh_app_setting_set --app=$app --key=turnserver_pwd --value=$turnserver_pwd
+
+coturn_config_path="/etc/$app/coturn.conf"
+
+ynh_add_config --template="../conf/coturn/turnserver.conf" --destination="$coturn_config_path"
+
+# Get public IP and set as external IP for coturn
+# note: '|| true' is used to ignore the errors if we can't get the public ipv4 or ipv6
+public_ip4="$(curl -s ip.yunohost.org)" || true
+public_ip6="$(curl -s ipv6.yunohost.org)" || true
+
+if ( [[ -n "$public_ip4" ]] && ynh_validate_ip4 --ip_address="$public_ip4" || [[ -n "$public_ip6" ]] && ynh_validate_ip6 --ip_address="$public_ip6" )
+then
+    echo "external-ip=${public_ip4}/${public_ip6}" >> "$coturn_config_path"
+fi
+
+ynh_store_file_checksum --file="$coturn_config_path"
+
+# Set permissions to app files
+chown -R $app:root /etc/$app
+chown turnserver:root /etc/$app/coturn.conf
+chmod -R u=rwX,g=rX,o= /etc/$app
+setfacl -R -m user:turnserver:rX  /etc/$app
+setfacl -R -m user:turnserver:rwX  /var/log/$app
 
 #=================================================
 # BUILD YARN DEPENDENCIES
@@ -73,6 +133,7 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=coturn-$app.service --action=restart --log_path="/var/log/$app/turnserver.log"
 
 #=================================================
 # END OF SCRIPT

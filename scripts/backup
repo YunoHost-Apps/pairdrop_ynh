@@ -20,6 +20,7 @@ ynh_print_info --message="Declaring files to be backed up..."
 #=================================================
 
 ynh_backup --src_path="$install_dir"
+ynh_backup --src_path="/etc/$app"
 
 #=================================================
 # BACKUP THE NGINX CONFIGURATION
@@ -28,10 +29,20 @@ ynh_backup --src_path="$install_dir"
 ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 #=================================================
+# BACKUP LOGROTATE
+#=================================================
+
+ynh_backup --src_path="/var/log/$app"
+
+ynh_backup --src_path="/etc/logrotate.d/$app"
+
+#=================================================
 # BACKUP SYSTEMD
 #=================================================
 
 ynh_backup --src_path="/etc/systemd/system/$app.service"
+ynh_backup --src_path="/etc/default/coturn-$app"
+ynh_backup --src_path="/etc/systemd/system/coturn-$app.service"
 
 #=================================================
 # END OF SCRIPT
