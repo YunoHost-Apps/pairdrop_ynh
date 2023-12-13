@@ -28,7 +28,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 	- As it is web based, it runs on all devices.
 
 
-**Shipped version:** 1.9.4~ynh1
+**Shipped version:** 1.10.0~ynh1
 
 **Demo:** https://pairdrop.net/
 
@@ -41,6 +41,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 * Official app website: <https://pairdrop.net/>
 * Official admin documentation: <https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md>
 * Upstream app code repository: <https://github.com/schlagmichdoch/PairDrop>
+* YunoHost Store: <https://apps.yunohost.org/app/pairdrop>
 * Report a bug: <https://github.com/YunoHost-Apps/pairdrop_ynh/issues>
 
 ## Developer info
