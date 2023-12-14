@@ -10,7 +10,7 @@ Environment="__YNH_NODE_LOAD_PATH__"
 Environment="PORT=__PORT__"
 Environment="RTC_CONFIG=__INSTALL_DIR__/rtc_config.json"
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__YNH_NODE__ start --rate-limit --auto-restart
+ExecStart=__YNH_NODE__ __INSTALL_DIR__/server/index.js --rate-limit --auto-restart
 Restart=always
 
 
