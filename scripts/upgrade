@@ -28,7 +28,6 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..." --weight=1
 
-	# Download, check integrity, uncompress and patch the source from manifest.toml
 	ynh_setup_source --dest_dir="$install_dir"
 fi
 
@@ -39,7 +38,6 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=5
 
-# Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
 #=================================================
@@ -62,18 +60,6 @@ pushd "$install_dir"
 	ynh_use_nodejs
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install
 popd
-
-#=================================================
-# RECONFIGURE THE APP (UPDATE CONF, APPLY MIGRATIONS...)
-#=================================================
-# UPDATE A CONFIG FILE
-#=================================================
-#ynh_script_progression --message="Updating a configuration file..." --weight=1
-
-#ynh_add_config --template="some_config_file" --destination="$install_dir/some_config_file"
-
-#chmod 400 "$install_dir/some_config_file"
-#chown $app:$app "$install_dir/some_config_file"
 
 #=================================================
 # START SYSTEMD SERVICE
