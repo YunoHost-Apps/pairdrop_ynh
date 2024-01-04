@@ -27,7 +27,7 @@ PairDrop est une sublime alternative à AirDrop qui fonctionne sur toutes les pl
 - Application Web
 	- Comme il est basé sur le Web, il fonctionne sur tous les appareils.
 
-**Version incluse :** 1.10.2~ynh1
+**Version incluse :** 1.10.3~ynh1
 
 **Démo :** https://pairdrop.net/
 
