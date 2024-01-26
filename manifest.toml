@@ -7,7 +7,7 @@ name = "PairDrop"
 description.en = "Local file sharing in your browser"
 description.fr = "Partage de fichiers locaux dans votre navigateur"
 
-version = "1.10.5~ynh1"
+version = "1.10.6~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -45,8 +45,8 @@ ram.runtime = "50M"
     [resources.sources]
 
         [resources.sources.main]
-        url = "https://github.com/schlagmichdoch/PairDrop/archive/refs/tags/v1.10.5.tar.gz"
-        sha256 = "2de4aaac073b020da204666bcf9c1b8906008f0d7996b529a493e6b2aef86574"
+        url = "https://github.com/schlagmichdoch/PairDrop/archive/refs/tags/v1.10.6.tar.gz"
+        sha256 = "bee7afa386cd6b99dae5510404b502209ac194286b9733ac00bdc3aa9de64fe3"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
