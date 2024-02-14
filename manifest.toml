@@ -9,7 +9,7 @@ description.fr = "Partage de fichiers locaux dans votre navigateur"
 
 version = "1.10.6~ynh1"
 
-maintainers = ["eric_G"]
+maintainers = []
 
 [upstream]
 license = "AGPL-3.0-only"
