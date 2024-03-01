@@ -38,8 +38,8 @@ PairDrop est une sublime alternative à AirDrop qui fonctionne sur toutes les pl
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://pairdrop.net/>
-* Documentation officielle de l’admin : <https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md>
-* Dépôt de code officiel de l’app : <https://github.com/schlagmichdoch/PairDrop>
+* Documentation officielle de l’admin : <https://github.com/babstar99/PairDrop/blob/master/docs/host-your-own.md>
+* Dépôt de code officiel de l’app : <https://github.com/babstar99/PairDrop>
 * YunoHost Store: <https://apps.yunohost.org/app/pairdrop>
 * Signaler un bug : <https://github.com/YunoHost-Apps/pairdrop_ynh/issues>
 
