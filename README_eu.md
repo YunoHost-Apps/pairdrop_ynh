@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # PairDrop YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/pairdrop.svg)](https://dash.yunohost.org/appci/app/pairdrop) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/pairdrop.svg)](https://ci-apps.yunohost.org/ci/apps/pairdrop/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
 
 [![Instalatu PairDrop YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pairdrop)
 

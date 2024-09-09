@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # PairDrop para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://dash.yunohost.org/appci/app/pairdrop) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://ci-apps.yunohost.org/ci/apps/pairdrop/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
 
 [![Instalar PairDrop con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pairdrop)
 
