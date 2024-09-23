@@ -5,7 +5,7 @@
 
 # YunoHost 上的 PairDrop
 
-[![集成程度](https://dash.yunohost.org/integration/pairdrop.svg)](https://dash.yunohost.org/appci/app/pairdrop) ![工作状态](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/pairdrop.svg)](https://ci-apps.yunohost.org/ci/apps/pairdrop/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
 
 [![使用 YunoHost 安装 PairDrop](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pairdrop)
 
@@ -28,7 +28,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 	- As it is web based, it runs on all devices.
 
 
-**分发版本：** 1.10.7~ynh2
+**分发版本：** 1.10.7~ynh3
 
 **演示：** <https://pairdrop.net/>
 

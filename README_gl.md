@@ -5,7 +5,7 @@ NON debe editarse manualmente.
 
 # PairDrop para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://dash.yunohost.org/appci/app/pairdrop) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://ci-apps.yunohost.org/ci/apps/pairdrop/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
 
 [![Instalar PairDrop con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pairdrop)
 
@@ -28,7 +28,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 	- As it is web based, it runs on all devices.
 
 
-**Versión proporcionada:** 1.10.7~ynh2
+**Versión proporcionada:** 1.10.7~ynh3
 
 **Demo:** <https://pairdrop.net/>
 

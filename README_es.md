@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # PairDrop para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://dash.yunohost.org/appci/app/pairdrop) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/pairdrop.svg)](https://ci-apps.yunohost.org/ci/apps/pairdrop/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/pairdrop.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/pairdrop.maintain.svg)
 
 [![Instalar PairDrop con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pairdrop)
 
@@ -28,7 +28,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 	- As it is web based, it runs on all devices.
 
 
-**Versión actual:** 1.10.7~ynh2
+**Versión actual:** 1.10.7~ynh3
 
 **Demo:** <https://pairdrop.net/>
 
@@ -46,7 +46,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/pairdrop_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/pairdrop_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 

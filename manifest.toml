@@ -7,7 +7,7 @@ name = "PairDrop"
 description.en = "Local file sharing in your browser"
 description.fr = "Partage de fichiers locaux dans votre navigateur"
 
-version = "1.10.7~ynh2"
+version = "1.10.7~ynh3"
 
 maintainers = []
 
@@ -19,7 +19,8 @@ admindoc = "https://github.com/babstar99/PairDrop/blob/master/docs/host-your-own
 code = "https://github.com/babstar99/PairDrop"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 11.2.30"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
