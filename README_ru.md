@@ -28,7 +28,7 @@ PairDrop is a sublime alternative to AirDrop that works on all platforms.
 	- As it is web based, it runs on all devices.
 
 
-**Поставляемая версия:** 1.10.7~ynh2
+**Поставляемая версия:** 1.10.7~ynh3
 
 **Демо-версия:** <https://pairdrop.net/>
 
