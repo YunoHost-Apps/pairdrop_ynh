@@ -7,7 +7,7 @@ name = "PairDrop"
 description.en = "Local file sharing in your browser"
 description.fr = "Partage de fichiers locaux dans votre navigateur"
 
-version = "1.10.7~ynh2"
+version = "1.10.7~ynh3"
 
 maintainers = []
 
