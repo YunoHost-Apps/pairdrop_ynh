@@ -16,7 +16,7 @@ license = "AGPL-3.0-only"
 website = "https://pairdrop.net/"
 demo = "https://pairdrop.net/"
 admindoc = "https://github.com/babstar99/PairDrop/blob/master/docs/host-your-own.md"
-code = "https://github.com/babstar99/PairDrop"
+code = "https://github.com/schlagmichdoch/PairDrop"
 
 [integration]
 yunohost = ">= 11.2.30"
