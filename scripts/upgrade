@@ -18,13 +18,6 @@ ynh_script_progression "Upgrading source files..."
 ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression "Upgrading dependencies..."
-
-#REMOVEME? ynh_nodejs_install
-
-#=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
